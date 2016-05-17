@@ -1,0 +1,34 @@
+apply plugin: "war"
+apply plugin: "spring-boot"
+
+test {
+	exclude '*'
+}
+
+springBoot {
+    mainClass = "com.tdu.app2.run.Application"
+}
+
+
+buildscript {
+	repositories {
+       mavenCentral()
+    }
+    dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${spring_boot_version}")
+	}
+}
+
+configurations {
+}
+	
+	
+dependencies {
+	providedRuntime(
+		"org.springframework.boot:spring-boot-starter-jetty:${spring_boot_version}",
+	)
+	compile(
+		project(":sample-common"),
+		project(":sample-facade")
+	)
+}

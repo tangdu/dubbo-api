@@ -1,0 +1,10 @@
+
+dependencies {
+	compile(
+		project(":sample-common"),
+		project(":sample-dao"),
+		project(":sample-facade"),
+		project(":sample-model"),
+		project(":sample-web")
+	)
+}

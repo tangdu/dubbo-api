@@ -1,0 +1,20 @@
+
+
+includeFlat 'sample-common'
+
+includeFlat 'sample-bus'
+
+includeFlat 'sample-dao'
+
+includeFlat 'sample-bus'
+
+includeFlat 'sample-facade'
+
+includeFlat 'sample-model'
+
+includeFlat 'sample-web'
+
+
+includeFlat 'sample-app'
+
+includeFlat 'sample-app2'

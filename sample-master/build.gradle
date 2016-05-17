@@ -1,0 +1,78 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+ 
+subprojects{
+	apply plugin: "java"
+	apply plugin: "eclipse"
+	
+	group ="com.tdu"
+	version = "1.0.0"
+	
+	sourceCompatibility = 1.7
+	targetCompatibility = 1.7
+		
+	[compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
+	  
+    repositories {
+	   mavenLocal()
+       mavenCentral()
+    }
+    
+    configurations {
+		compile.exclude group: "org.springframework.boot", module: "spring-boot-starter-jetty"
+		compile.exclude group: "org.codehaus.woodstox", module: "wstx-asl"
+		compile.exclude group: "commons-fileupload"
+	}
+	
+	dependencies {
+		compile ("com.alibaba:dubbo:${dubbo_version}"){
+			exclude(module: 'spring')
+		}
+		compile(
+			"org.springframework.boot:spring-boot-starter:${spring_boot_version}",
+			"org.springframework.boot:spring-boot-starter-web:${spring_boot_version}",
+			"org.springframework.boot:spring-boot-autoconfigure:${spring_boot_version}",
+			"org.springframework.boot:spring-boot-starter-thymeleaf:${spring_boot_version}",
+			"org.springframework.boot:spring-boot-starter-jdbc:${spring_boot_version}",
+			"org.springframework.boot:spring-boot-starter-data-jpa:${spring_boot_version}",
+			"org.springframework:spring-context-support:${spring_framework_version}",
+			"org.springframework.boot:spring-boot-starter-data-mongodb:${spring_boot_version}",
+			"org.springframework:spring-tx:${spring_framework_version}",
+			
+			"com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${jackson_version}",
+			"mysql:mysql-connector-java:${mysql_version}",
+			"org.flywaydb:flyway-core:${flyway_version}",
+			"org.mybatis:mybatis:${mybatis_version}",
+			"org.mybatis:mybatis-spring:${mybatis_spring_version}",
+			"org.mybatis.generator:mybatis-generator-core:${mybatis_generator_version}",
+			"junit:junit:${junit_version}",
+			"joda-time:joda-time:${jota_time_version}",
+			"de.ruedigermoeller:fst:${fst_version}",
+			"com.github.sgroschupf:zkclient:${zkclient_version}"
+		)
+	    //ext.jarTree = fileTree(dir: 'libs', include: '**/*.jar')
+	    testCompile ()
+	}
+	
+	//源代码打包任务
+	task sourceJar (type : Jar) {
+		classifier = "sources"
+		from sourceSets.main.allSource
+	}
+	
+	//Java 文档打包任务
+	task javadocJar (type: Jar, dependsOn: javadoc) {
+		classifier = "javadoc"
+		from javadoc.destinationDir
+	}
+	
+	eclipse{
+		jdt{
+			sourceCompatibility = 1.7
+			targetCompatibility = 1.7
+		}
+	}
+	
+}

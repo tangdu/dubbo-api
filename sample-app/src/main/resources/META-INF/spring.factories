@@ -1,0 +1,6 @@
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+
+# Auto Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.tdu.app.autoconfig.MyBatisAutoConfiguration

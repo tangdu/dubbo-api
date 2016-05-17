@@ -1,0 +1,8 @@
+
+dependencies {
+	compile(
+		project(":sample-common"),
+		project(":sample-dao"),
+		project(":sample-model")
+	)
+}

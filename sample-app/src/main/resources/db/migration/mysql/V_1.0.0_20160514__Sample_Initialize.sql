@@ -1,0 +1,19 @@
+SET SESSION FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS `T_USER`;
+CREATE TABLE `T_USER` (
+  `id` varchar(50) NOT NULL DEFAULT '',
+  `uname` varchar(20) DEFAULT NULL,
+  `upwd` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表2';
+
+BEGIN;
+INSERT INTO `T_USER` VALUES
+('001', '唐三', '123'),
+('002', '唐四', '123'), 
+('003', '唐五', '123'), 
+('004', '唐六', '1232');
+COMMIT;
+
+
+SET SESSION FOREIGN_KEY_CHECKS=1;

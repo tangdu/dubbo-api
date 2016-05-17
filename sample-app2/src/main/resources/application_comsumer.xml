@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+	http://www.springframework.org/schema/beans/spring-beans.xsd  
+	http://code.alibabatech.com/schema/dubbo  
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+	
+	<dubbo:application name="dubbo_app2" owner="lisi"></dubbo:application>
+	<dubbo:protocol name="dubbo" port="20880" />
+	<dubbo:registry protocol="zookeeper"  address="zookeeper://localhost:2181" timeout="3000"></dubbo:registry>
+	<!--监控中心
+	<dubbo:monitor protocol="registry"/>
+	-->
+	<dubbo:reference id="userInfoFacade" interface="com.tdu.sample.facade.service.UserInfoFacade" version="1.0.0"  check ="true" timeout="3000" /> 
+</beans>

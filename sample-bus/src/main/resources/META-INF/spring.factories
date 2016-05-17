@@ -1,0 +1,7 @@
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+
+# Auto Configuration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.tdu.sample.bus.autoconfig.dubbo.DubboProviderAutoConfiguration,\
+com.tdu.sample.bus.autoconfig.ComponentScanAutoConfiguration
