@@ -5,6 +5,7 @@ test {
 	exclude '*'
 }
 
+///测试分支///
 springBoot {
     mainClass = "com.tdu.app.Application"
 }
