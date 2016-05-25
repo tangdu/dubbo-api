@@ -9,7 +9,7 @@ springBoot {
     mainClass = "com.tdu.app.Application"
 }
 
-
+///测试分支///
 buildscript {
 	repositories {
        mavenCentral()
