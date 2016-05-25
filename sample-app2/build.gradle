@@ -29,6 +29,7 @@ dependencies {
 	)
 	compile(
 		project(":sample-common"),
-		project(":sample-facade")
+		project(":sample-facade"),
+		"com.alibaba.rocketmq:rocketmq-client:${rocketmq_client_version}"
 	)
 }

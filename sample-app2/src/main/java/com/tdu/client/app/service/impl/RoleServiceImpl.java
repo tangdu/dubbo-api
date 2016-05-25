@@ -29,7 +29,10 @@ public class RoleServiceImpl implements RoleService {
 	@Override
 	public void getUser() {
 		long s=System.currentTimeMillis();
-		Result<List<UserVo>> result = userInfoFacade.findAllUser();
+		Result<List<UserVo>> result=null;
+		for(int i=0;i<1000;i++){
+			result = userInfoFacade.findAllUser();
+		}
 		System.out.println(System.currentTimeMillis()-s);
 		if (result.getStateCode() == BaseStateCode.SUCCESS.getCode()) {
 			for (UserVo vo : result.getData()) {
